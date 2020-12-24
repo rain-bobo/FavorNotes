@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/iv_add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+        <TextView
+            android:paddingBottom="100dp"
+            android:id="@+id/tvSetting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="设置"
+            android:textColor="@android:color/white"
+            android:layout_above="@+id/dd5"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="80dp" />
+
+        <TextView
+            android:id="@+id/tvRecord"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/dd5"
+            android:layout_alignParentStart="true"
+            android:gravity="center"
+            android:paddingBottom="100dp"
+            android:paddingLeft="80dp"
+            android:text="记录"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/iv_push_mysetting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/setting"
+            android:visibility="invisible"
+            android:layout_above="@+id/tvRecord"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="55dp" />
+
+        <ImageView
+
+            android:visibility="invisible"
+            android:id="@+id/iv_push_myrecord"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/record"
+            android:layout_above="@+id/tvSetting"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="55dp" />
+
+        <ImageView
+            android:id="@+id/iv_push_record_faker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/iv_push_setting_faker"
+            android:layout_alignTop="@+id/iv_push_setting_faker"
+            android:background="@drawable/setting"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/iv_push_setting_faker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/tvnull"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/record"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/dd5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/tvnull"
+            android:src="@mipmap/ic_tab_add"
+
+            />
+
+        <TextView
+            android:id="@+id/tvnull"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:textSize="10sp" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

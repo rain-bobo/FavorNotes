@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">人情笔记</string>
+    <string name="please_search_info">请输入搜索信息</string>
+    <string name="date_empty">数据为空，无此类记录~~</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
