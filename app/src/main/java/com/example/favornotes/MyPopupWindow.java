@@ -110,7 +110,9 @@ public class MyPopupWindow extends PopupWindow implements View.OnClickListener {
     //进去界面的动画
     private void startAnimation() {
         //最下面的添加按钮旋转按钮动画
-        RotateAnimation rotateAnimation = new RotateAnimation(0, 45,      RotateAnimation.RELATIVE_TO_SELF, 0.5f, RotateAnimation.RELATIVE_TO_SELF, 0.5f);
+        RotateAnimation rotateAnimation = new RotateAnimation(0, 45,
+                RotateAnimation.RELATIVE_TO_SELF, 0.5f,
+                RotateAnimation.RELATIVE_TO_SELF, 0.5f);
         rotateAnimation.setDuration(300);
         rotateAnimation.setInterpolator(new BounceInterpolator());
         rotateAnimation.setFillAfter(true);
@@ -124,26 +126,26 @@ public class MyPopupWindow extends PopupWindow implements View.OnClickListener {
             @Override
             public void onAnimationEnd(Animation animation) {
 
-                //默认相册图片
+                //默认记录图片
                 int location[] = new int[2];
                 iv_push_photo_faker.getLocationOnScreen(location);
                 defwightTvPhoto = location[0];
                 defheightTvPhoto = location[1];
 
-                //之后的淘宝图片
+                //之后的设置图片
                 int location1[] = new int[2];
                 iv_push_resale.getLocationOnScreen(location1);
                 wightTvTaobao = location1[0];
                 heightTvTaobao = location1[1];
 
 
-                //之后的相册图片
+                //之后的记录图片
                 int location2[] = new int[2];
                 iv_push_photo.getLocationOnScreen(location2);
                 wightTvPhoto = location2[0];
                 heightTvPhoto = location2[1];
 
-                //默认淘宝的图片位置
+                //默认设置位置
                 int location3[] = new int[2];
                 iv_push_resale_faker.getLocationOnScreen(location3);
                 defwightTvTaobao = location3[0];
@@ -206,13 +208,16 @@ public class MyPopupWindow extends PopupWindow implements View.OnClickListener {
 
     ///出去的动画
     private void exitAnimation() {
-        RotateAnimation rotateAnimation = new RotateAnimation(0, 90, RotateAnimation.RELATIVE_TO_SELF, 0.5f, RotateAnimation.RELATIVE_TO_SELF, 0.5f);
+        RotateAnimation rotateAnimation = new RotateAnimation(0, 90,
+                RotateAnimation.RELATIVE_TO_SELF, 0.5f,
+                RotateAnimation.RELATIVE_TO_SELF, 0.5f);
         rotateAnimation.setDuration(300);
         rotateAnimation.setInterpolator(new BounceInterpolator());
         iv_add.startAnimation(rotateAnimation);
 
 
-        TranslateAnimation sa = new TranslateAnimation(0, defwightTvPhoto - wightTvPhoto,  0 ,defheightTvPhoto - heightTvPhoto);
+        TranslateAnimation sa = new TranslateAnimation(0, defwightTvPhoto - wightTvPhoto,
+                0 ,defheightTvPhoto - heightTvPhoto);
         sa.setDuration(400);
         sa.setInterpolator(new BounceInterpolator());
         sa.setFillAfter(true);

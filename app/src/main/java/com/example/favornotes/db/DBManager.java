@@ -83,43 +83,6 @@ public class DBManager {
         return list;
     }
 
-    /*
-     * 获取记账表当中某一月的所有支出或者收入情况
-     * */
-    public static List<AccountBean>getAccountListOneMonthFromAccounttb(int year, int month){
-        List<AccountBean>list = new ArrayList<>();
-        String sql = "select * from accounttb where year=? and month=? order by id desc";
-        Cursor cursor = db.rawQuery(sql, new String[]{year + "", month + ""});
-        //遍历符合要求的每一行数据
-        while (cursor.moveToNext()) {
-            int id = cursor.getInt(cursor.getColumnIndex("id"));
-            String typename = cursor.getString(cursor.getColumnIndex("typename"));
-            String name = cursor.getString(cursor.getColumnIndex("name"));
-            String reason = cursor.getString(cursor.getColumnIndex("reason"));
-            String time = cursor.getString(cursor.getColumnIndex("time"));
-            int sImageId = cursor.getInt(cursor.getColumnIndex("sImageId"));
-            int kind = cursor.getInt(cursor.getColumnIndex("kind"));
-            float money = cursor.getFloat(cursor.getColumnIndex("money"));
-            int day = cursor.getInt(cursor.getColumnIndex("day"));
-            AccountBean accountBean = new AccountBean(id, typename, sImageId, name, reason,  money, time, year, month, day, kind);
-            list.add(accountBean);
-        }
-        return list;
-    }
-    /**
-     * 获取某一天的支出或者收入的总金额   kind：支出==0    收入===1
-     * */
-    public static float getSumMoneyOneDay(int year,int month,int day,int kind){
-        float total = 0.0f;
-        String sql = "select sum(money) from accounttb where year=? and month=? and day=? and kind=?";
-        Cursor cursor = db.rawQuery(sql, new String[]{year + "", month + "", day + "", kind + ""});
-        // 遍历
-        if (cursor.moveToFirst()) {
-            float money = cursor.getFloat(cursor.getColumnIndex("sum(money)"));
-            total = money;
-        }
-        return total;
-    }
     /**
      * 获取某一月的随礼或者收礼的总金额   kind：随礼==0    收礼==1
      * */
@@ -142,20 +105,6 @@ public class DBManager {
         if (cursor.moveToFirst()) {
             int count = cursor.getInt(cursor.getColumnIndex("count(money)"));
             total = count;
-        }
-        return total;
-    }
-    /**
-     * 获取某一年的随礼或者收礼的总金额   kind：支出==0    收入===1
-     * */
-    public static float getSumMoneyOneYear(int year,int kind){
-        float total = 0.0f;
-        String sql = "select sum(money) from accounttb where year=? and kind=?";
-        Cursor cursor = db.rawQuery(sql, new String[]{year + "", kind + ""});
-        // 遍历
-        if (cursor.moveToFirst()) {
-            float money = cursor.getFloat(cursor.getColumnIndex("sum(money)"));
-            total = money;
         }
         return total;
     }

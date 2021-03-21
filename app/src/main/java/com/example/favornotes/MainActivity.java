@@ -6,6 +6,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.CalendarView;
@@ -20,6 +21,8 @@ import com.example.favornotes.db.DBManager;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.logging.Handler;
+import java.util.logging.LogRecord;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     ListView todayLv;  //展示今日收支情况的ListView
@@ -155,6 +158,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onResume() {
         super.onResume();
         loadDBData();
+
     }
 
     // 加载数据库数据
@@ -163,6 +167,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mDatas.clear();
         mDatas.addAll(list);
         adapter.notifyDataSetChanged();
+        
+
     }
     /* 获取今日的具体时间*/
     private void initTime() {
